@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", authenticateSession, authorizationSession, usersRouter);
-app.use("/token", tokenRouter);
+app.use("/token", authenticateSession, tokenRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
